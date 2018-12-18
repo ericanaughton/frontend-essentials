@@ -79,7 +79,7 @@ const bar = () => {
 // });
 
 it('should display foo, as it is in global scope', () => {
-  console.log(foo);
+  //console.log(foo);
   expect(foo).toEqual('global scope');
 });
 
