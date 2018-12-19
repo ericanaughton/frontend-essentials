@@ -60,10 +60,11 @@ it('should change the status to Complete', () => {
 });
 
 //Can't run this test as fixedStatus is read only value
-// it('fixedStatus value should remian the same', () => {
-//   fixedStatus = 'Done';
-//   expect(fixedStatus).toEqual('Active');
-// });
+it('fixedStatus value should remian the same', () => {
+  expect(() => {
+    fixedStatus = 'Active';
+  }).toThrowError(`"fixedStatus" is read-only`);
+});
 
 //function scope
 
@@ -74,9 +75,11 @@ const bar = () => {
   return `show baz:${baz}, hey I am ${foo}`;
 };
 
-// it('should throw error when asked for baz, as it is in function scope', () => {
-//   expect(baz).not.toBeDefined();
-// });
+it('should throw error when asked for baz, as it is in function scope', () => {
+  expect(() => {
+    baz;
+  }).toThrowError(`baz is not defined`);
+});
 
 it('should display foo, as it is in global scope', () => {
   //console.log(foo);
