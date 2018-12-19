@@ -75,7 +75,7 @@ const bar = () => {
 };
 
 // it('should throw error when asked for baz, as it is in function scope', () => {
-//   expect(undefined).toEqual(baz);
+//   expect(baz).not.toBeDefined();
 // });
 
 it('should display foo, as it is in global scope', () => {
