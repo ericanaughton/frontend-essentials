@@ -14,19 +14,18 @@
 - [x] Understand the scope of a code block
 - [x] Expressions and Operators
 - [x] Expressions vs Statement
-- [ ] Parameter vs Argument
+- [x] Parameter vs Argument
 
 ### Objects
 
-- [ ] Create a new object with object literal syntax
-- [ ] Access properties of an object when the property names are known (dot notation)
-- [ ] Access properties of an object when the property names are variable (bracket notation)
-- [ ] Modify the value for a property of an object (through both dot notation and bracket notation)
-- [ ] Create a new property for an object (through both dot notation and bracket notation)
-- [ ] Create a copy of an object with the spread operator
-- [ ] Add a new property when creating a copy with the spread operator
-- [ ] Use of Object.assign
-- [ ] Getters and setters
+- [x] Create a new object with object literal syntax
+- [x] Access properties of an object when the property names are known (dot notation)
+- [x] Access properties of an object when the property names are variable (bracket notation)
+- [x] Modify the value for a property of an object (through both dot notation and bracket notation)
+- [x] Create a new property for an object (through both dot notation and bracket notation)
+- [x] Create a copy of an object with the spread operator
+- [x] Add a new property when creating a copy with the spread operator
+- [x] Use of Object.assign
 
 # CSS
 
