@@ -99,9 +99,13 @@ it("let's create a shallow copy of an object and add values to it", () => {
     domestic: 'yes'
   };
 
-  const foo = Object.assign({ gender: 'male' }, animal);
+  const foo = Object.assign({}, animal, { type: 'dog' });
 
-  expect(foo.gender).toEqual('male');
+  expect(foo).toEqual({
+    type: 'dog',
+    legs: 4,
+    domestic: 'yes'
+  });
 });
 
 //object desturturing
