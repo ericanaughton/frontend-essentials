@@ -27,6 +27,20 @@
 - [x] Add a new property when creating a copy with the spread operator
 - [x] Use of Object.assign
 
+### Arrays
+
+- [x] Create a new array with array literal syntax
+- [x] Access an item in an array by its index
+- [x] Add an item to an array
+- [x] Replace an item in an array by its index
+- [x] Map over an array to create a new array
+      Filter over an array to create a new array
+      Reduce
+      Find,some,every, includes
+      Go over slice vs splice, unshift, concat
+      Rest,spread operators
+      Typed arrays
+
 # CSS
 
 - [ ] CSS grid
