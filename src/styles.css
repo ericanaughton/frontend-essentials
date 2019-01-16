@@ -1,8 +1,15 @@
-/* .App {
+.App {
   font-family: sans-serif;
   text-align: center;
-} */
+}
 
 .table {
   display: flex;
+  width: 100%;
+}
+
+.table > div {
+  padding: 1rem;
+  font-size: 0.8rem;
+  border-right: 1px solid grey;
 }
