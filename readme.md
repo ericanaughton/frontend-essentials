@@ -34,12 +34,16 @@
 - [x] Add an item to an array
 - [x] Replace an item in an array by its index
 - [x] Map over an array to create a new array
-      Filter over an array to create a new array
-      Reduce
-      Find,some,every, includes
-      Go over slice vs splice, unshift, concat
-      Rest,spread operators
-      Typed arrays
+- [ ] Filter over an array to create a new array
+- [ ] Reduce
+- [ ] Find
+- [ ] Some
+- [ ] Every
+- [ ] Includes
+- [ ] From - create an array with 0-5 elements in it
+- [ ] Go over slice vs splice, unshift, concat
+- [ ] Rest,spread operators
+- [ ] Typed arrays
 
 # CSS
 
@@ -51,3 +55,8 @@
 - [ ] Bring examples for each lesson.
 - [ ] Bring examples from our code base.
 - [ ] Be better at mentoring.
+
+#### 22/02 To Do List
+
+- [ ] Go over the exercise
+- [ ] Show how to create number array with new Array
