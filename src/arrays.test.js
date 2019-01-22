@@ -23,6 +23,7 @@ it('create an array with 4 items in it, which the each item is a', () => {
 
 it('create an array with  natural numbers 0-9 in it', () => {
   const myNumArr = [...Array(10).keys()];
+  //const myNumArr = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
   expect(myNumArr).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 });
 
@@ -43,6 +44,12 @@ it('add D to my alpha array', () => {
 });
 
 // fun methods
+
+//map method
+const fooArr = [1, 2, 3, 4, 5];
+//const callBackFunc = (item, idx) => { }
+//const foo = fooArr.map((item, idx)=>{});
+//const foo = fooArr.map(callBackFunc)
 
 // problem: add item 'B' to the second position,
 // but don't mutate the original array
