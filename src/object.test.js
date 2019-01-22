@@ -1,110 +1,110 @@
 //creating a new object
-it("should return the type as an object", () => {
+it('should return the type as an object', () => {
   const myObj1 = new Object();
   const myObj2 = {};
 
-  expect(typeof myObj1).toEqual("object");
-  expect(typeof myObj2).toEqual("object");
+  expect(typeof myObj1).toEqual('object');
+  expect(typeof myObj2).toEqual('object');
 });
 
 //accessing properties from an object from dot notation
-it("should display name as Erica from person object", () => {
+it('should display name as Erica from person object', () => {
   const person = {
-    name: "Erica"
+    name: 'Erica'
   };
-  expect(person.name).toEqual("Erica");
+  expect(person.name).toEqual('Erica');
 });
 
 //accessing properties from an object using bracket notation
 //Access properties of an object when the property names are variable
-it("should display city from person object", () => {
+it('should display city from person object', () => {
   const person = {
-    city: "Austin"
+    city: 'Austin'
   };
-  expect(person["city"]).toEqual("Austin");
+  expect(person['city']).toEqual('Austin');
 });
 
 //modifying a value in an object
 
-it("should change the city to Houston in person object", () => {
+it('should change the city to Houston in person object', () => {
   const person = {
-    city: "Austin"
+    city: 'Austin'
   };
 
-  person.city = "Houston";
-  expect(person.city).toEqual("Houston");
+  person.city = 'Houston';
+  expect(person.city).toEqual('Houston');
 });
 
-it("should change the city to New Mexico in person object", () => {
+it('should change the city to New Mexico in person object', () => {
   const person = {
-    city: "Austin"
+    city: 'Austin'
   };
 
-  person["city"] = "New Mexico";
+  person['city'] = 'New Mexico';
 
-  expect(person["city"]).toEqual("New Mexico");
+  expect(person['city']).toEqual('New Mexico');
 });
 
-it("should add age to the person object", () => {
+it('should add age to the person object', () => {
   const person = {
-    name: "Bob",
-    job: "Builder"
+    name: 'Bob',
+    job: 'Builder'
   };
 
-  person["city"] = "Austin";
+  person['city'] = 'Austin';
   person.age = 55;
 
   expect(person).toEqual({
-    name: "Bob",
-    job: "Builder",
+    name: 'Bob',
+    job: 'Builder',
     age: 55,
-    city: "Austin"
+    city: 'Austin'
   });
 });
 
 //spread operator
-it("spread operator should create immutable objects", () => {
+it('spread operator should create immutable objects', () => {
   const person = {
-    name: "Bob",
-    city: "Austin",
+    name: 'Bob',
+    city: 'Austin',
     age: 55,
-    workplace: "Eduphoria!",
-    job: "Developer"
+    workplace: 'Eduphoria!',
+    job: 'Developer'
   };
 
   const person2 = {
     ...person,
-    name: "Will",
+    name: 'Will',
     age: 45,
-    city: "Denver",
+    city: 'Denver',
     kids: 2
   };
 
   //console.log('person', person, 'person2', person2);
 
   expect({
-    name: "Will",
-    city: "Denver",
+    name: 'Will',
+    city: 'Denver',
     age: 45,
-    workplace: "Eduphoria!",
-    job: "Developer",
+    workplace: 'Eduphoria!',
+    job: 'Developer',
     kids: 2
   }).toEqual(person2);
 });
 
 it("let's create a shallow copy of an object and add values to it", () => {
   const animal = {
-    type: "cat",
+    type: 'cat',
     legs: 4,
-    domestic: "yes"
+    domestic: 'yes'
   };
 
-  const foo = Object.assign({}, animal, { type: "dog" });
+  const foo = Object.assign({}, animal, { type: 'dog' });
 
   expect(foo).toEqual({
-    type: "dog",
+    type: 'dog',
     legs: 4,
-    domestic: "yes"
+    domestic: 'yes'
   });
 });
 
@@ -113,33 +113,33 @@ const myFunc = name => `my name is: ${name}`;
 
 const myNewFunc = ({ name }) => `my name is ${name}`;
 
-it("when I run myFunc display the name argument as it is", () => {
-  expect(myFunc(55)).toEqual("my name is: 55");
+it('when I run myFunc display the name argument as it is', () => {
+  expect(myFunc(55)).toEqual('my name is: 55');
 });
 
-it("when I run myNewFunc, it should only care about the property named as name", () => {
-  const person = { name: "Bob", age: 55 };
-  expect(myNewFunc(person)).toEqual("my name is Bob");
+it('when I run myNewFunc, it should only care about the property named as name', () => {
+  const person = { name: 'Bob', age: 55 };
+  expect(myNewFunc(person)).toEqual('my name is Bob');
 });
 
-it("showJobDetails should return jobDetails", () => {
+it('showJobDetails should return jobDetails', () => {
   const showJobDetails = ({ job: { name } }) => `Job is ${name}`;
   const person = {
-    name: "Bob",
+    name: 'Bob',
     job: {
-      name: "Dev",
+      name: 'Dev',
       years: 4
     }
   };
-  expect(showJobDetails(person)).toEqual("Job is Dev");
+  expect(showJobDetails(person)).toEqual('Job is Dev');
 });
 
 //rest parameter
 const person = {
-  name: "Bob",
+  name: 'Bob',
   age: 55,
-  job: "DEV",
-  city: "Denver"
+  job: 'DEV',
+  city: 'Denver'
 };
 
 const { name, age, ...rest } = person;
