@@ -26,8 +26,10 @@ it("should capitalize every other word in a string", () => {
   const swapCase = name =>
     name
       .split(" ")
-      .map((word, idx) => (idx % 2 ? capitalize(word) : word))
+      .map((word, idx) => (idx % 2 === 0 ? capitalize(word) : word))
       .join(" ");
+
+  console.log(swapCase(name));
 
   expect(swapCase(name)).toEqual("erica ASHLY naughton MILLER");
 });
