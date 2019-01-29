@@ -41,7 +41,10 @@
 - [ ] Every
 - [ ] Includes
 - [ ] From - create an array with 0-5 elements in it
-- [ ] Go over slice vs splice, unshift, concat
+- [ ] Slice
+- [ ] Splice
+- [ ] Unshift
+- [ ] Concat
 - [ ] Rest,spread operators
 - [ ] Typed arrays
 
