@@ -12,7 +12,7 @@ it('create an array using new keyword', () => {
 
 it('create an array with length of 10', () => {
   const my10ItemsArr = new Array(10);
-  console.log(my10ItemsArr);
+  //console.log(my10ItemsArr);
   expect(my10ItemsArr.length).toEqual(10);
 });
 
