@@ -1,6 +1,6 @@
 //map method
 const fooArr = [1, 2, 3, 4, 5];
-//const callBackFunc = (item, idx) => { }
+//const callBackFunc = (item, idx, array) => { }
 //const foo = fooArr.map((item, idx)=>{});
 //const foo = fooArr.map(callBackFunc)
 
@@ -106,3 +106,69 @@ it('should create an array with student name and grade in it', () => {
     { name: 'Buddhika', grade: 3 }
   ]);
 });
+
+//problem
+//Write a JavaScript program which accept a number as input and insert dashes(-)
+//between each two even numbers.For example if you accept 025468 the output should be 0 - 254 - 6 - 8
+it('insertDash should insert dashes in between two even numbers', () => {
+  const number = 25468;
+  const expected = '254-6-8';
+  const insertDash = number => {
+    //convert the number to string
+    //split the string to an array
+    //check whether two adjacent numbers are even
+    //if so add  a dash
+  };
+
+  //expect(insertDash(number)).toEqual(expected);
+});
+//  Erica: it('should a function that inserts dashes between each two even numbers', () => {
+//   const number = '025468';
+
+//   const insertDashes = number => {
+//     number
+//       .split(' ')
+//       .map(digit =>
+//         digit % 2 === 0 ? digit.insertBefore(' - ', digit) : digit
+//       )
+//       .join();
+//   };
+
+//   const expected = insertDashes(number);
+
+//   expect(insertDashes(number)).toEqual(expected);
+// });
+
+// Doran:  it('should return a number with dashes', () => {
+//   const numbers = '1,2,3,4,5,6';
+
+//   const dashes = numbers
+//     .split()
+//     .map((num, idx) =>
+//       (idx % 2 === 0 ? num.insertAdjacentElement('-') : num).join()
+//     );
+
+//   expect(dashes).toEqual('1,2-3,4-5,6');
+// });
+
+//Write a JavaScript function to clone an array
+
+it('function should clone an array', () => {
+  const foo = [1, 2, 3, 4, 5, 6];
+  const cloneAnArray = arr => arr.map(item => item);
+  const bar = cloneAnArray(foo);
+  expect(foo).toEqual(bar);
+});
+
+//  Erica answer: it('should clone an array', () => {
+
+//   const arr = [1, 2, 3];
+
+//   const cloneArray = arr => {
+//   }
+
+//   const expected =
+//    [1, 2, 3]
+
+//   expect(cloneArray(arr)).toEqual(expected);
+// })
