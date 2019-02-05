@@ -13,7 +13,7 @@ it('create an array using new keyword', () => {
 
 it('create an array with length of 10', () => {
   const my10ItemsArr = new Array(10);
-  // console.log(my10ItemsArr);
+  //console.log(my10ItemsArr);
   expect(my10ItemsArr.length).toEqual(10);
 });
 
@@ -24,6 +24,7 @@ it('create an array with 4 items in it, which the each item is string a', () => 
 
 it('create an array with  0-9 in it', () => {
   const myNumArr = [...Array(10).keys()];
+  //const myNumArr = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
   expect(myNumArr).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 });
 
@@ -41,112 +42,4 @@ it('add D to my alpha array', () => {
   alpha.push('D');
 
   expect(alpha[3]).toEqual('D');
-});
-
-// fun methods
-
-// problem: add item 'B' to the second position,
-// but don't mutate my original array
-it("let's use map method to manipulate data and create copy of original array", () => {
-  const myArr = [1, 2, 3, 4, 5];
-
-  const newArr = myArr.map((item, idx) => (idx === 1 ? 'B' : item));
-
-  // console.log('myArr', myArr);
-  expect(newArr[1]).toEqual('B');
-});
-
-//problem: using my studentsArray create a an array that only have their first name
-it("should create an array with students's first name in it", () => {
-  const studentsArray = [
-    {
-      firstName: 'Doran',
-      gradeLevel: 4,
-      subject: 'Science'
-    },
-    {
-      firstName: 'Buddhika',
-      gradeLevel: 4,
-      subject: 'Math'
-    },
-    {
-      firstName: 'Erica',
-      gradeLevel: 5,
-      subject: 'Math'
-    }
-  ];
-
-  const studentsFirstName = studentsArray.map(student => student.firstName);
-
-  expect(studentsFirstName).toEqual(['Doran', 'Buddhika', 'Erica']);
-});
-
-//problem: using my studentsData array create a new array with subjects in it,
-// but if you come across the subject as science change it to math
-
-it('create an array with subjects', () => {
-  const studentsData = [
-    {
-      firstName: 'Doran',
-      gradeLevel: 4,
-      subject: 'Science'
-    },
-    {
-      firstName: 'Buddhika',
-      gradeLevel: 4,
-      subject: 'Math'
-    },
-    {
-      firstName: 'Erica',
-      gradeLevel: 5,
-      subject: 'Math'
-    }
-  ];
-
-  const subjects = studentsData.map(student =>
-    student.subject === 'Science' ? 'Math' : student.subject
-  );
-
-  expect(subjects).toEqual(['Math', 'Math', 'Math']);
-});
-
-//using my studentsData create an array which includes studentName and grade
-
-it('should create an array with student name and grade in it', () => {
-  const studentsDataById = {
-    1: {
-      name: 'Doran',
-      subject: 'Math',
-      grade: 3
-    },
-
-    2: {
-      name: 'Erica',
-      subject: 'Science',
-      grade: 4
-    },
-
-    3: {
-      name: 'Kyle',
-      subject: 'Math',
-      grade: 4
-    },
-
-    4: {
-      name: 'Buddhika',
-      subject: 'Science',
-      grade: 3
-    }
-  };
-
-  const studentsArray = Object.values(studentsDataById).map(student => ({
-    name: student.name,
-    grade: student.grade
-  }));
-  expect(studentsArray).toEqual([
-    { name: 'Doran', grade: 3 },
-    { name: 'Erica', grade: 4 },
-    { name: 'Kyle', grade: 4 },
-    { name: 'Buddhika', grade: 3 }
-  ]);
 });
