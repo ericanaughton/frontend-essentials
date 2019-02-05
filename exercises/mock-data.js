@@ -140,3 +140,5 @@ const movieData = [
     address: '75465 Oak Valley Lane'
   }
 ];
+
+export { movieData };
