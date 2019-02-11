@@ -74,7 +74,7 @@ it('should return an array of data which only includes female', () => {
     return item.gender === 'Female';
   });
 
-  console.log(dataSet);
+  // console.log(dataSet);
   expect(filteredArray).toEqual(expected);
 });
 
