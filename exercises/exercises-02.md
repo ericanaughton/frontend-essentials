@@ -10,5 +10,5 @@
 5. Write a JavaScript function to remove a specific element from an array.
    ex: remove_array_element([2, 5, 9, 6], 5)
 
-6. Write a JavaScript function to find an array contains a specific element.
+6. Write a JavaScript function to find an array contains, a specific element.
    ex: contains(arr, 5)
