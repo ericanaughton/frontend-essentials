@@ -1,14 +1,20 @@
-import { developers } from '../exercises/mock-data';
+import { developers, doctors } from '../exercises/mock-data';
 
 // 1. Calculate the total sum of age for the developers.
 //    Use mock data developers data set.
 
 it('should calculate the total sum of ages for developers', () => {
-  const callBack = (acc, curr) => acc + curr.age;
+  const developerAges = developers.map(developer => developer.age);
 
-  console.log('total age', developers.reduce(callBack));
+  // console.log('ages', developerAges);
 
-  expect(developers.reduce(callBack).toEqual(131));
+  const callBack = (acc, developer) => acc + developer;
+
+  // console.log('Callback', callBack);
+
+  // console.log('total age', developerAges.reduce(callBack));
+
+  expect(developerAges.reduce(callBack)).toEqual(131);
 });
 
 // 2. Using the doctors data set, calculate the number of years each actor played as doctor from year 2000 and above.
@@ -22,6 +28,32 @@ it('should calculate the total sum of ages for developers', () => {
 //   { doctorNumber: '#12', playedBy: 'Peter Capaldi', yearsPlayed: 1 }
 // ];
 // ```
+
+it('should calculate number of years each actor played as dr from 2000+', () => {
+  const expected = [
+    { doctorNumber: '#9', playedBy: 'Christopher Eccleston', yearsPlayed: 1 },
+    { doctorNumber: '#10', playedBy: 'David Tennant', yearsPlayed: 6 },
+    { doctorNumber: '#11', playedBy: 'Matt Smith', yearsPlayed: 4 },
+    { doctorNumber: '#12', playedBy: 'Peter Capaldi', yearsPlayed: 1 }
+  ];
+
+  // calculate the number between begin and end for each doctor
+  // save that total in a property called yearsPlayed
+
+  const callBack = (years, doctor) => ({
+    yearsPlayed: doctor.end - doctor.begin
+  });
+
+  console.log('callBack', callBack);
+
+  const filteredDoctors = doctors.filter(doctor =>
+    doctor.begin >= 2000 ? callBack : {}
+  );
+
+  console.log('filteredDoctors', filteredDoctors);
+
+  expect(doctors.reduce(callBack)).toEqual(expected);
+});
 
 // 3. Write a function that takes a string and returns an object representing the character
 // count for each letter.Use.reduce to build this object.
