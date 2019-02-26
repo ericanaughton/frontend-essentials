@@ -35,8 +35,8 @@
 - [x] Replace an item in an array by its index
 - [x] Map over an array to create a new array
 - [x] Filter over an array to create a new array
-- [ ] Reduce
-- [ ] Find
+- [x] Reduce
+- [x] Find
 - [ ] Some
 - [ ] Every
 - [ ] Includes

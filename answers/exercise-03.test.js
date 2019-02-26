@@ -1,34 +1,43 @@
-import { developers, doctors } from '../exercises/mock-data';
+import { developers, doctors } from '../exercises/mock-data.js';
 
-// 1. Calculate the total sum of age for the developers.
-//    Use mock data developers data set.
+// Calculate the total sum of age for the developers.
+it('total sum of the developers should be 131', () => {
+  const calculatedAge = developers.reduce((acc, currentDev) => {
+    return acc + currentDev.age;
+  }, 0);
 
-it('should calculate the total sum of ages for developers', () => {
-  const developerAges = developers.map(developer => developer.age);
-
-  // console.log('ages', developerAges);
-
-  const callBack = (acc, developer) => acc + developer;
-
-  // console.log('Callback', callBack);
-  // console.log('total age', developerAges.reduce(callBack));
-
-  expect(developerAges.reduce(callBack)).toEqual(131);
+  // const calculatedAge = developers
+  //   .map(developer => developer.age)
+  //   .reduce((acc, cv) => acc + cv);
+  expect(calculatedAge).toEqual(131);
 });
 
-// 2. Using the doctors data set, calculate the number of years each actor played as doctor from year 2000 and above.
-// Desired output
+//Using the doctors data set, calculate the number of years each actor played as doctor from year 2000 and above.
+it('should convert my doctors data set and filter only for doctors who begin their role year above 2000', () => {
+  const callBackFunc = (arr, doctor) => {
+    if (doctor.begin > 2000) {
+      return [
+        ...arr,
+        {
+          doctorNumber: `#${doctor.number}`,
+          playedBy: doctor.actor,
+          yearsPlayed: doctor.end - doctor.begin + 1
+        }
+      ];
+    }
 
-//   ```js
-// const filteredData = [
-//   { doctorNumber: '#9', playedBy: 'Christopher Eccleston', yearsPlayed: 1 },
-//   { doctorNumber: '#10', playedBy: 'David Tennant', yearsPlayed: 6 },
-//   { doctorNumber: '#11', playedBy: 'Matt Smith', yearsPlayed: 4 },
-//   { doctorNumber: '#12', playedBy: 'Peter Capaldi', yearsPlayed: 1 }
-// ];
-// ```
+    return arr;
+  };
+  const filteredData = doctors.reduce(callBackFunc, []);
 
-it('should calculate number of years each actor played as dr from 2000+', () => {
+  // const filteredData = doctors
+  //   .filter(doctor => doctor.begin > 2000)
+  //   .map(doctor => ({
+  //     doctorNumber: `#${doctor.number}`,
+  //     playedBy: doctor.actor,
+  //     yearsPlayed: doctor.end - doctor.begin + 1
+  //   }));
+
   const expected = [
     { doctorNumber: '#9', playedBy: 'Christopher Eccleston', yearsPlayed: 1 },
     { doctorNumber: '#10', playedBy: 'David Tennant', yearsPlayed: 6 },
@@ -36,130 +45,51 @@ it('should calculate number of years each actor played as dr from 2000+', () => 
     { doctorNumber: '#12', playedBy: 'Peter Capaldi', yearsPlayed: 1 }
   ];
 
-  // filter out the doctors played after 2000
-  const filteredDoctors = doctors.filter(doctor => doctor.begin >= 2000);
-  // console.log('filteredDoctors', filteredDoctors);
-
-  //   //But I can filter the doctors using reduce
-
-  // const callBack = doctors.reduce((accArray, currentDoctor) => {
-  //   if (currentDoctor.begin >= 2000) {
-  //     return [...accArray, currentDoctor];
-  //   }
-
-  //   return accArray;
-  // });
-
-  // console.log('filteredDoctors', doctors.reduce(callBack, []));
-
-  // calculate the number between begin and end for each doctor
-  // save that total in a property called yearsPlayed
-  // const callBack = (yearsPlayed, doctor) => ({
-  //   ...doctor,
-  //   yearsPlayed: doctor.end - doctor.begin + 1
-  // });
-  // console.log('callBack', callBack);
-
-  // I'm only returning one doctor, but should return array of doctors
-  // Then I need to remove begin and end
-
-  const getTotalYears = filteredDoctors =>
-    filteredDoctors.reduce((yearsPlayed, doctor) => ({
-      ...doctor,
-      yearsPlayed: doctor.end - doctor.begin + 1
-    }));
-
-  //   // console.log('final answer', getTotalYears(filteredDoctors));
-
-  expect(getTotalYears(filteredDoctors)).toEqual(expected);
+  expect(filteredData).toEqual(expected);
 });
 
-// 3. Write a function that takes a string and returns an object representing the character
-// count for each letter.Use.reduce to build this object.
+//Write a function that takes a string and returns an object representing the character
+//count for each letter.Use.reduce to build this object.
 
-// ```js
-// ex.countLetters('abbcccddddeeeee'); // => {a:1, b:2, c:3, d:4, e:5}
-// const countLetters = string => {
-//   // your code here
-// };
-// ```
-
-it('should take a string and return an object with the count of each letter', () => {
-  const expected = { a: 1, b: 2, c: 3, d: 4, e: 5 };
-
-  const string = 'abbcccddddeeeee';
-
-  // First split the string into an array of strings
-  // Then use reduce to count the occurrence of each letter
-
-  // console.log('split', string.split(''));
-
-  // const callBack = ((count, letter) => {
-  //   !letter[count] ? (letter[count] = 1) : letter[count]++;
-  // },
-  // {});
-
-  // console.log('callBack', callBack);
-
-  // const countLetters = string.split('').reduce(callBack);
-
-  // console.log('countLetters', countLetters);
-
-  // console.log('final answer', countLetters(string));
-
-  //   const countLetters = string =>
-  //     string.split('').reduce((accLetters, letter) => {
-  //       if (letter in accLetters) {
-  //         accLetters[letter]++;
-  //       } else {
-  //         accLetters[letter] = 1;
-  //       }
-  //       return accLetters;
-  //     }, {});
-
-  const countLetters = string =>
-    string
-      .split('')
-      .reduce(
-        (count, letter) => ({ ...count, [letter]: count[letter] + 1 || 1 }),
-        {}
-      );
-
-  //   console.log('final answer', countLetters(string));
-
-  expect(countLetters(string)).toEqual(expected);
-});
-
-// 4. Write a function that takes a string and a target, and returns true or false if the target is present in the string.
-//   Use.reduce to acomplish this.
-
-// ```js
-// // ex. isPresent('abcd', 'b') // => true
-// // ex. isPresent('efghi', 'a') // => false
-// const isPresent = (string, target) => {
-//   //code here
-// };
-// ```
-
-it('should take a string and a target, return true if string is present', () => {
-  const string = 'abcd';
-  const target = 'b';
-
-  //   // First split the string into an array of strings
-  // console.log('split', string.split(''));
-  //   Then check if the target is present
-  // If the target is present, then return true
-  // If the target is not present, return false
-
-  const isPresent = (string, target) =>
-    string.split('').reduce((hasTarget, currentLetter) => {
-      if (currentLetter === target) {
-        hasTarget = hasTarget || true;
+it('should count the letters of the string', () => {
+  const countLetters = string => {
+    const callBackFunc = (accObj, currentCha) => {
+      if (currentCha in accObj) {
+        accObj[currentCha]++;
+        return accObj;
       }
-      return hasTarget;
-    }, false);
+      return { ...accObj, [currentCha]: 1 };
+    };
 
-  // console.log('final answer', isPresent(string, target));
+    return string.split('').reduce(callBackFunc, {});
+  };
+  const expected = {
+    q: 2,
+    w: 1,
+    e: 5,
+    d: 1,
+    f: 1,
+    g: 1
+  };
+  expect(countLetters('qwedfgeeeeq')).toEqual(expected);
+});
 
-  expect(isPresent(string, target)).toEqual(true);
+//Write a function that takes a string and a target, and returns true or false if the target is present in the string.
+//Use.reduce to acomplish this.
+it('takes a string and a target, and returns true or false if the target is present', () => {
+  const isPresent = (str, target) => {
+    return !!str.split('').filter(cha => cha === target).length;
+  };
+
+  // const isPresent = (str, target) => {
+  //   return str.split('').reduce((hasTarget, cha) => {
+  //     console.log(cha);
+  //     if (cha === target) {
+  //       hasTarget = true;
+  //     }
+  //     hasTarget = false;
+  //     return hasTarget;
+  //   }, false);
+  // };
+  expect(isPresent('abesedfgbbb', 'f')).toEqual(true);
 });
