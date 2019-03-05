@@ -94,12 +94,89 @@ it('return move that start after 9pm', () => {
     movie => movie.time > new Date('February 12, 2019 21:00:00')
   );
 
-  console.log(findMovie);
-
   const expected = {
-    id: 4,
-    movie: 'Man with One Red Shoe, The',
-    time: '9:17 PM'
+    id: 3,
+    movie: 'Snow Beast ',
+    time: new Date('2019-02-13T03:48:00.000Z')
   };
   expect(findMovie).toEqual(expected);
 });
+
+//every function
+// it only operates on arrays.
+// every function takes callback function
+// your callback function is a predicate
+// it goes through all your items to see if the given predicate function is passed
+const employees = [
+  {
+    id: 1,
+    first_name: 'Danette',
+    last_name: 'MacGiany',
+    car: 1990
+  },
+  {
+    id: 2,
+    first_name: 'Stefania',
+    last_name: 'Delatour',
+    car: 1996
+  },
+  {
+    id: 3,
+    first_name: 'Roana',
+    last_name: 'Easthope',
+    car: 1994
+  },
+  {
+    id: 4,
+    first_name: 'Giacopo',
+    last_name: 'Trinder',
+    car: 1984
+  },
+  {
+    id: 5,
+    first_name: 'Trenton',
+    last_name: 'Asken',
+    car: 1986
+  }
+];
+
+it('check if each employee has a new car', () => {
+  expect(employees.every(employee => employee.car < 2017)).toEqual(true);
+});
+
+//includes
+//includes also operate on arrays
+//to use this your items in the array should be very staright forward
+
+const animals = ['dog', 'cat', 'tiger', 'elephant'];
+//console.log(animals.includes('tiger'));
+// can't use for following type arrays
+// const animals2 = [
+//   {
+//     type: 'dog',
+//     id: 112
+//   },
+//   {
+//     type: 'cat',
+//     id: 113
+//   }
+// ];
+
+// animals2.includes('dog');
+
+//from function
+// this operates on Array like iterable objects
+// from function takes array like object, map function
+
+//benefits
+// convert a string to an array
+const foo = 'hello';
+Array.from(foo); // ['h', 'e', 'l','l','o]
+
+const bar = {
+  length: 10
+};
+
+const baz = Array.from(bar, (x, idx) => idx + 2);
+
+console.log(baz);
