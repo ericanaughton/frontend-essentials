@@ -41,8 +41,8 @@
 - [x] Every
 - [x] Includes
 - [x] From - create an array with 0-5 elements in it
-- [ ] Slice
-- [ ] Splice
+- [x] Slice
+- [x] Splice
 - [ ] Concat
 - [ ] Shift
 - [ ] Unshift
