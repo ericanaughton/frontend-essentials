@@ -132,6 +132,7 @@ const employees = [
   }
 ];
 
+
 it('should check whether there are any employyes whose credit card type is maestro', () => {
   expect(
     employees.some(employee => employee.credit_card_type === 'maestro')
