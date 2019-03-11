@@ -37,16 +37,26 @@
 - [x] Filter over an array to create a new array
 - [x] Reduce
 - [x] Find
-- [ ] Some
-- [ ] Every
-- [ ] Includes
-- [ ] From - create an array with 0-5 elements in it
-- [ ] Slice
-- [ ] Splice
-- [ ] Unshift
+- [x] Some
+- [x] Every
+- [x] Includes
+- [x] From - create an array with 0-5 elements in it
+- [x] Slice
+- [x] Splice
 - [ ] Concat
+- [ ] Shift
+- [ ] Unshift
 - [ ] Rest,spread operators
-- [ ] Typed arrays
+
+### Functions
+
+- [] Firstclass
+- [] Describe the purpose of a given function
+- [] Declare a function
+- [] Identify the purpose of each argument in a given function declaration
+- [] Identify the expected result of a given function
+- [] Invoke a function and assign the result to a variable
+- [] Closures
 
 # CSS
 

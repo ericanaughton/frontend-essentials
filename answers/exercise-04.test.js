@@ -1,4 +1,3 @@
-```js
 const supports = {
   textToSpeech: 'Text to Speech',
   contentClarifiers: 'Content Clarifiers',
@@ -63,37 +62,38 @@ const students = [
     }
   }
 ];
-```
 
-1. For the given data set below,write a function which returns an array
-   of supports that has been turned for the student. if the student have no supports turned on return
-   'none'.
+it('should display the turned on supports for students and for if the supports are all turned off show none', () => {
+  const turnedOnSupports = studentSupports => {
+    return Object.keys(studentSupports).reduce(
+      (supportsArr, currentSupport) => {
+        if (studentSupports[currentSupport]) {
+          return [...supportsArr, supports[currentSupport]];
+        }
+        return supportsArr;
+      },
+      []
+    );
+  };
 
-```js
-const turnedOnSupports = studentSupports => {
-  //your code
-  // if the supports are turned on
-  // return ['Content Clarifiers', 'Spanish' ]
-  //else
-  //return 'None'
-};
-ex: turnedOnSupports(students[1].supports); // [ 'Text to Speech','Content Clarifiers','Spanish']
-```
+  const expectedOutput1 = ['Text to Speech', 'Spelling Assistance', 'Spanish'];
+  const expectedOutput2 = 'None';
 
-2. Write a function which will take an array and an id. For the given id return the student's full name
+  expect(turnedOnSupports(students[1].supports)).toEqual(expectedOutput1);
+  expect(turnedOnSupports(students[2].supports).length === 0 && 'None').toEqual(
+    expectedOutput2
+  );
+});
 
-```js
-const studentsFullName = (id, arr) => {
-  //your code
-  //  return John Smith
-};
+it('should take an id, and array and return an item that matches it', () => {
+  const studentsFullName = (id, arr) => {
+    const tempStudent = arr.find(student => student.id === id);
+    return `${tempStudent.first_name} ${tempStudent.last_name}`;
+  };
 
-ex: studentsFullName(2, students); // Fayre Norrie
-```
+  expect(studentsFullName(2, students)).toEqual('Fayre Norrie');
+});
 
-3. For the given data set below check whether there are any employees whose credit card type is maestro
-
-```js
 const employees = [
   {
     id: 1,
@@ -131,47 +131,9 @@ const employees = [
     credit_card_type: 'maestro'
   }
 ];
-```
 
-4. From the movie data set find a movie which will air on 12/12/2019 and after 2.00pm. Return the theater address for that movie
-5. For the movie data set array check whether there is any movie that shows on 3/20/2019
-
-```js
-[
-  {
-    id: 1,
-    movie: 'Slap Shot',
-    date: '4/7/2019',
-    time: '8:37 PM',
-    address: '37 Kropf Junction'
-  },
-  {
-    id: 2,
-    movie: 'Carson City',
-    date: '12/12/2019',
-    time: '2:37 PM',
-    address: '2 Ridgeview Point'
-  },
-  {
-    id: 3,
-    movie: 'Soldier of Fortune',
-    date: '9/30/2019',
-    time: '8:45 PM',
-    address: '518 American Point'
-  },
-  {
-    id: 4,
-    movie: 'Children of Heaven, The (Bacheha-Ye Aseman)',
-    date: '2/8/2019',
-    time: '8:37 PM',
-    address: '6354 Hooker Hill'
-  },
-  {
-    id: 5,
-    movie: 'Perfect Human, The (Perfekte Menneske, Det)',
-    date: '3/20/2019',
-    time: '3:32 PM',
-    address: '07223 Eastwood Plaza'
-  }
-];
-```
+it('should check whether there are any employyes whose credit card type is maestro', () => {
+  expect(
+    employees.some(employee => employee.credit_card_type === 'maestro')
+  ).toEqual(true);
+});
