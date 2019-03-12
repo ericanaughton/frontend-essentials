@@ -139,6 +139,6 @@ it('arrayToObject should return my array as an object', () => {
 
   const convertedData = arrayToObject(employees, 'id');
 
-  console.log(convertedData);
+  //console.log(convertedData);
   expect(convertedData).toEqual(expected);
 });

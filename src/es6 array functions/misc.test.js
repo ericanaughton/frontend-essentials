@@ -88,7 +88,7 @@ it('return move that start after 9pm', () => {
     time: new Date(`February 12, 2019 ${movie.time}`)
   }));
 
-  console.log(rearrangedArr);
+  //console.log(rearrangedArr);
 
   const findMovie = rearrangedArr.find(
     movie => movie.time > new Date('February 12, 2019 21:00:00')
