@@ -83,7 +83,7 @@ it('should return filteredData set that includes female employees', () => {
 
 // using the above data set convert the data set to an object where the unique key is the id
 /* ex: {
-          1: { 
+          1: {
             id: 1,
             first_name: 'Josias',
             last_name: 'Aspin',
