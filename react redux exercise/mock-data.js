@@ -4,7 +4,7 @@ const prices = {
   child: '$4.00'
 };
 
-const movie = [
+export const movieData = [
   {
     id: 1,
     title: 'Betty',
