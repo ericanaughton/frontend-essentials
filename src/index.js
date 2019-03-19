@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AllMovies from '../react-redux-exercise/components/all-movies.js';
+import AllMovies from '../react redux exercise/components/all-movies.js';
 
 import './styles.css';
 

@@ -1,4 +1,4 @@
-const prices = {
+export const prices = {
   adult: '$14.00',
   senior: '$7.00',
   child: '$4.00'

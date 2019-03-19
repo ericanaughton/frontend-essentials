@@ -1,0 +1,7 @@
+.detailCell {
+  padding: 1rem;
+}
+
+.detailCell > span {
+  margin-right: 1rem;
+}
