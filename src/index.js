@@ -1,16 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import App from './app';
+import { createStore } from 'redux';
+import rootReducer from './root-reducer';
 
-import './styles.css';
-
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
-}
-
+//import './styles.css'; this is how you import styles
 const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
+const store = createStore(rootReducer);
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);

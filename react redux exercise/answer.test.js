@@ -104,3 +104,46 @@ it('moviesBasedOnTime function should return for a given show time', () => {
 
   expect(moviesBasedOnTime(convertedMovies, '3:00 PM')).toEqual(expected);
 });
+
+it('moiviesBasedOnGenre, should return all movies that includes the given genre', () => {
+  const convertedMovies = movies.map(movie => ({
+    ...movie,
+    genre: movie.genre.split('|')
+  }));
+
+  const expected = [
+    {
+      id: 1,
+      title: 'Betty',
+      genre: ['Drama'],
+      theater_address: '88 Mayer Road',
+      time: '12:24 PM',
+      show_date: '1/10/2019',
+      stars: 1
+    },
+    {
+      id: 4,
+      title: 'Burning Plain, The',
+      genre: ['Drama', 'Romance'],
+      theater_address: '0 Banding Park',
+      time: '8:05 PM',
+      show_date: '2/19/2019',
+      stars: 3
+    },
+    {
+      id: 5,
+      title: 'Some Girl',
+      genre: ['Comedy', 'Drama'],
+      theater_address: '282 Buell Plaza',
+      time: '11:59 AM',
+      show_date: '3/6/2019',
+      stars: 4
+    }
+  ];
+
+  const moiviesBasedOnGenre = (arr, genre) => {
+    return arr.filter(movie => movie.genre.includes(genre));
+  };
+
+  expect(moiviesBasedOnGenre(convertedMovies, 'Drama')).toEqual(expected);
+});
