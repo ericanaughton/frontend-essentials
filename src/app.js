@@ -8,7 +8,6 @@ const mapStateToProps = state => ({
 
 const App = ({ pages }) => (
   <Fragment>
-    {console.log(pages)}
     <Details />
   </Fragment>
 );

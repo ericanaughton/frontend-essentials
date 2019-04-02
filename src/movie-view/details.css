@@ -1,0 +1,15 @@
+.container {
+  grid-area: movies-column;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+  grid-template-areas: 'sidebar movies-container';
+}
+
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.movieBox {
+  height: 10rem;
+}
