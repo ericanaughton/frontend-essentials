@@ -16,7 +16,8 @@ const currentDate = new Date();
 const date = `${currentDate.getMonth()} ${currentDate.getDate()} ${currentDate.getFullYear()}`;
 const convertededDataSet = movies.map(movie => ({
   ...movie,
-  time: new Date(`${date} ${movie.time}`)
+  time: new Date(`${date} ${movie.time}`),
+  genres: movie.genre.split('|')
 }));
 
 const MoviesReducer = (state = initialState, action) => {
