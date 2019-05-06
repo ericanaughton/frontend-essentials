@@ -1,0 +1,3 @@
+const genres = {
+  horror: 'Horror'
+};

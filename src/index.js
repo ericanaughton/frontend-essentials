@@ -1,18 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import AllMovies from '../react redux exercise/components/all-movies.js';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import App from './app';
+import { createStore } from 'redux';
+import rootReducer from './root-reducer';
 
-import './styles.css';
-
-const myTable = [...Array(5).keys()]; //need to have 5 columns
-
-function App() {
-  return (
-    <div className="App">
-      <AllMovies />
-    </div>
-  );
-}
-
+//import './styles.css'; this is how you import styles
 const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
+const store = createStore(rootReducer);
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);
