@@ -1,21 +1,7 @@
 import React from 'react';
+import Genres from '../filter-pane/partials/genre-filter';
 
 const FilterPane = () => {
-  //filter based on genre
-  //horror
-  //comedy
-  //drama
-  //docmentary
-  //adventure
-  //romance
-  //thriller
-  //sci-fi
-  //crime
-  //western
-  //action
-  //animation
-  //children
-
   //filter based on time
   // after 10AM
   // after 3PM
@@ -26,6 +12,7 @@ const FilterPane = () => {
   return (
     <div>
       <div>Sort By Genres</div>
+      <Genres />
       <div>Sort By Time</div>
       <div>Sort By Ratings</div>
     </div>

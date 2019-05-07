@@ -22,6 +22,10 @@ const convertededDataSet = movies.map(movie => ({
 
 const MoviesReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'FILTER_BY': {
+      // state.movies.byId.genres.includes(action.genre);
+    }
+
     default:
       return {
         byId: {

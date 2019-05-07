@@ -1,7 +1,7 @@
 import actions from './actions';
 
 const initialState = {
-  genre: null,
+  genres: null,
   time: null,
   rating: null
 };
