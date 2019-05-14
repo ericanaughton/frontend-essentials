@@ -3,7 +3,7 @@ import actions from './actions';
 
 const initialState = {
   time: null,
-  genre: null,
+  genre: [],
   rating: null
 };
 describe('FilterPaneReducer', () => {
@@ -11,13 +11,27 @@ describe('FilterPaneReducer', () => {
     expect(FilterPaneReducer(undefined, {})).toEqual(initialState);
   });
 
-  it('actions.onFilter should handle sorting', () => {
+  it.only('actions.onFilter should handle sorting', () => {
     const state = {
-      genre: 'romance'
+      genre: []
     };
 
     const expected = {
-      genre: 'comedy'
+      genre: ['comedy']
+    };
+
+    const action = actions.onFilter('genre', 'comedy');
+
+    expect(FilterPaneReducer(state, action)).toEqual(expected);
+  });
+
+  it.only('actions.onFilter should handle sorting', () => {
+    const state = {
+      genre: ['comedy']
+    };
+
+    const expected = {
+      genre: []
     };
 
     const action = actions.onFilter('genre', 'comedy');

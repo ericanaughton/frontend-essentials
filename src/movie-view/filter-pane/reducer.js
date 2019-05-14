@@ -1,7 +1,8 @@
 import actions from './actions';
+import { addOrRemoveFromArray } from '../../util/util';
 
 const initialState = {
-  genres: null,
+  genre: [],
   time: null,
   rating: null
 };
@@ -9,6 +10,11 @@ const initialState = {
 const FilterPaneReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FILTER_BY': {
+      if (action.name === 'genre') {
+        const temp = state.genre;
+
+        return { ...state, genre: addOrRemoveFromArray(temp, action.field) };
+      }
       return { ...state, [action.name]: action.field };
     }
     default:

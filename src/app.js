@@ -6,10 +6,11 @@ const mapStateToProps = state => ({
   pages: state
 });
 
-const App = ({ pages }) => (
-  <Fragment>
-    <Details />
-  </Fragment>
-);
+const App = ({ pages }) =>
+  console.log('pages', pages) || (
+    <Fragment>
+      <Details />
+    </Fragment>
+  );
 
 export default connect(mapStateToProps)(App);

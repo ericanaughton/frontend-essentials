@@ -4,14 +4,16 @@ import { connect } from 'react-redux';
 import actions from '../actions';
 
 const mapStateToProps = state => ({
-  // selectedGenres: state.filterPane.genres
+  selectedGenres: state.filter.genre
 });
 
 const mapDispatchToProps = dispatch => ({
-  onFilter: (name, field) => dispatch(actions.FILTER_BY({ name, field }))
+  onFilter: (name, field) => dispatch(actions.onFilter(name, field))
 });
 
 const GenreFilter = ({ onFilter, selectedGenres }) => {
+  console.log(onFilter);
+
   return (
     <div>
       {Object.values(GENRES).map(genre => (
@@ -19,9 +21,9 @@ const GenreFilter = ({ onFilter, selectedGenres }) => {
           <label htmlFor={genre}>
             <input
               type="checkbox"
-              // checked={selectedGenres.includes(genre)}
+              checked={selectedGenres.includes(genre)}
               value={genre}
-              onChange={() => onFilter('genres', genre)}
+              onChange={e => onFilter('genre', e.target.value)}
             />
             {genre}
           </label>
